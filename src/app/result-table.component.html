@@ -1,0 +1,31 @@
+<div *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</div>
+<table *ngIf="tickets[0]" class="restable">
+    <tr>
+        <th (click)="onSortClick('id')" class="sortable-tableheader">Id</th>
+        <th (click)="onSortClick('date')" class="sortable-tableheader">Last edit</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Telephone</th>
+        <th>Email</th>
+        <th>Service</th>
+        <th>Comments</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor="let ticket of (tickets | orderBy: orderByColumn)" class='restr'>
+        <td>{{ticket.id}}</td>
+        <td>{{ticket.date | date:'dd/MM/y'}}</td>
+        <td>{{ticket.firstName}}</td>
+        <td>{{ticket.lastName}}</td>
+        <td>{{ticket.tel}}</td>
+        <td>{{ticket.email}}</td>
+        <td>{{ticket.service}}</td>
+        <td class="comment-cell">{{ticket.comments}}</td>
+        <td [ngSwitch]="ticket.status">
+            <div *ngSwitchCase="0">Registerd</div>
+            <div *ngSwitchCase="1">In Progress</div>
+            <div *ngSwitchCase="2">Completed</div>                        
+        </td>
+        <td class="borderless-cell"><button class="edit-btn" (click)="onEdit(ticket.id)">EDIT</button></td>
+        <edit-form *ngIf="openEdit && openEditId === ticket.id" [ticket]="ticket"  (onEdited)="onEdited($event)"></edit-form>
+    </tr>
+</table>

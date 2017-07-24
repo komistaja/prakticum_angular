@@ -1,0 +1,14 @@
+# 
+dist/
+#
+node_modules/
+#
+config/
+#
+tslint.json
+#
+bs-config.json
+#
+e2e-spec.ts
+#
+/*.js

@@ -1,0 +1,43 @@
+<div (click)="hideNewTicketForm()" class="overlay">
+    <form (click)="$event.stopPropagation()" class="popup" id="newTicketForm" #newTicketForm="ngForm">
+        <button type="button" (click)="hideNewTicketForm()" class="close-button">X</button>
+        <p>
+            <label for="newFname" class="inputlabel">First name:</label>
+            <input #newFname="ngModel" [(ngModel)]="newTicket.firstName" name="newFname" type="text" id="newFirstName" class="input" required><span class="require-exclamation"> ! </span>
+
+            <label for="newLname" class="inputlabel">Last name:</label>
+            <input #newLname="ngModel" [(ngModel)]="newTicket.lastName" name="newLname" type="text" id="newLastName" class="input" required><span class="require-exclamation"> ! </span>
+        </p>
+        
+        <p>
+            <label for="email" class="inputlabel">Email:</label>
+            <input #newEmail="ngModel" [(ngModel)]="newTicket.email" name="newEmail" type="email" id="newEmail" class="input">
+
+            <label for="tel" class="inputlabel">Telephone:</label>
+            <input #newTel="ngModel" [(ngModel)]="newTicket.tel" name="newTel" type="tel" id="newTel" class="input">
+        </p>
+        <p>
+            <label for="service" class="textbox-label">Service order:</label>
+            <input #newService="ngModel" [(ngModel)]="newTicket.service" name="newService" type="text" id="newService" class="input service-input" required><span class="require-exclamation"> ! </span>
+        </p>
+        <p>    
+            <label for="comments" class="textbox-label">Comments:</label>
+            
+            <textarea cols="60" rows="5" #newComments="ngModel" [(ngModel)]="newTicket.comments" name="newComments" type="text" id="newComments" class="input comment-box"></textarea>
+        </p>
+        <p>
+            <label for="status" class="inputlabel">Status:</label>
+            <select #newStatus="ngModel" [(ngModel)]="newTicket.status" name="newStatus" id="newStatus" class="input" required><span class="require-exclamation"> ! </span>
+                <option value="0">Registered</option>
+                <option value="1">In progress</option>
+                <option value="2">Finished</option>
+            </select>
+        </p>
+
+        <button type="submit" [disabled]="!newTicketForm.form.valid" (click)="onAddTicket(newTicket)">ADD TICKET</button>
+        {{formMessage}}
+        <p>
+            <span class="require-exclamation"> ! </span>= required
+        </p>
+    </form>
+</div>

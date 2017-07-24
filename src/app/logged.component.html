@@ -1,0 +1,16 @@
+<div class="maincol">
+  <button (click)="newTicket()">NEW TICKET</button>
+  <new-ticket-form *ngIf="showNewTicketForm"  (onAdd)="onAdd($event)"></new-ticket-form>
+  <form #searchform="ngForm">
+    <label for="emailsearch" class="inputlabel">Email: </label>
+    <input #searchEmail [(ngModel)]="user.email" name="emailsearch" id="emailsearch" class="input">
+    <label for="id" class="inputlabel">Id:</label>
+    <input #searchId [(ngModel)]="user.id" name="idsearch" type="number" id="idsearch" class="input">
+
+    <button (click)="onSearch(searchParam.email, searchParam.id)" id="button2" class="button">SEARCH</button>
+  </form>
+  <div id="tablediv" class="tablediv">
+
+  </div>
+</div>
+<result-table *ngIf="showResultTable" [searchParam]="searchParam"></result-table>

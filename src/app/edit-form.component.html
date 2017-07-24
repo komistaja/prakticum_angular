@@ -1,0 +1,43 @@
+<div (click)="hideDataForm()" class="overlay">
+    <form (click)="$event.stopPropagation()" class="popup" id="postform" #postForm="ngForm">
+        <button type="button" (click)="hideDataForm()" class="close-button">X</button>
+        <p>
+            <label for="firstName" class="inputlabel">First name:</label>
+            <input #editFirstname [(ngModel)]="editTicket.firstName" name="editFirstName" type="text" id="editFirstName" class="input" required><span class="require-exclamation"> ! </span>
+
+            <label for="lasNname" class="inputlabel">Last name:</label>
+            <input #lname [(ngModel)]="editTicket.lastName" name="lname" type="text" id="lastName" class="input" required><span class="require-exclamation"> ! </span>
+        </p>
+        <p>
+            <label for="email" class="inputlabel">Email:</label>
+            <input #email [(ngModel)]="editTicket.email" name="email" type="email" id="email" class="input">
+            
+            <label for="tel" class="inputlabel">Telephone:</label>
+            <input #tel [(ngModel)]="editTicket.tel" name="tel" type="tel" id="tel" class="input">
+        </p>
+        <p>
+            <label for="service" class="inputlabel textbox-label">Service order:</label>
+            <input #service [(ngModel)]="editTicket.service" name="service" type="text" id="service" class="input service-input" required><span class="require-exclamation"> ! </span>
+        </p>
+        <p>    
+            <label for="comments" class="inputlabel textbox-label">Comments:</label>
+            <textarea cols="60" rows="5" #comments [(ngModel)]="editTicket.comments" name="comments" type="text" id="comments" class="input comment-box"></textarea>
+        </p>
+        <p>
+            <label for="status" class="inputlabel">Status:</label>
+            <select #status [(ngModel)]="editTicket.status" name="status" id="status" class="input" required><span class="require-exclamation"> ! </span>
+                <option value="0">Registered</option>
+                <option value="1">In progress</option>
+                <option value="2">Finished</option>
+            </select>
+            
+            <label for="id" class="inputlabel">Id:</label>
+            <input #id [(ngModel)]="editTicket.id" name="id" type="text" id="id" class="input" readonly>
+        </p>
+    <button type="submit" (click)="onUpdate(editTicket)" [disabled]="!postForm.form.valid" id="button" class="button">Update ticket</button>
+    <button type="button" (click)="onDelete(editTicket.id)" type="button" id="delete" class="button">Delete ticket</button>
+    <p>
+       <span class="require-exclamation"> ! </span>= required
+   </p>
+    </form>
+</div>
