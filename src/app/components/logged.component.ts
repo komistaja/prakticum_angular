@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
-import { DataService } from './data.service';
+import { DataService } from '../data.service';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'logged-component',
-    templateUrl: 'logged.component.html',
-    styleUrls: [ 'logged.component.css' ]
+    templateUrl: '../view/logged.component.html',
+    styleUrls: [ '../view/logged.component.css' ]
 })
 
 export class LoggedComponent {

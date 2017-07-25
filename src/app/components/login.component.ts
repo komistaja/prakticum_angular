@@ -6,12 +6,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { User } from './user';
+import { User } from '../user';
 
 @Component({
     selector: 'login-component',
-    templateUrl: 'login.component.html',
-    styleUrls: [ 'login.component.css' ]
+    templateUrl: '../view/login.component.html',
+    styleUrls: [ '../view/login.component.css' ]
 })
 export class LoginComponent {
     errorMessage = '';
@@ -39,14 +39,15 @@ export class LoginComponent {
         let headers = new Headers({ 'Content-type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.loginUrl, { username: this.user.name, password: this.user.password }, options)
+        let request = this.http.post(this.loginUrl, { username: this.user.name, password: this.user.password }, options)
             .map(this.extractData)
             .catch(this.handleError);
+        return request;
     }
 
     private extractData(res: Response) {
         let body = res.json();
-        console.log(body);
+        console.log('extractdata: ', body);
         return body.data || {};
     }
 

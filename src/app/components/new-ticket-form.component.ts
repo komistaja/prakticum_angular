@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import { Ticket } from './ticket';
+import { Ticket } from '../ticket';
 
-import { DataService } from './data.service';
+import { DataService } from '../data.service';
 
 @Component({
     selector: 'new-ticket-form',
-    templateUrl: 'new-ticket-form.component.html',
-    styleUrls: [ 'new-ticket-form.component.css' ]
+    templateUrl: '../view/new-ticket-form.component.html',
+    styleUrls: [ '../view/new-ticket-form.component.css' ]
 })
 
 export class NewTicketFormComponent {

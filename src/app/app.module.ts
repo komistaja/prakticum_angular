@@ -4,12 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login.component';
-import { HeaderComponent } from './header.component';
-import { LoggedComponent } from './logged.component';
-import { EditFormComponent } from './edit-form.component';
-import { ResultTableComponent } from './result-table.component';
-import { NewTicketFormComponent } from './new-ticket-form.component';
+import { LoginComponent } from './components/login.component';
+import { HeaderComponent } from './components/header.component';
+import { LoggedComponent } from './components/logged.component';
+import { EditFormComponent } from './components/edit-form.component';
+import { ResultTableComponent } from './components/result-table.component';
+import { NewTicketFormComponent } from './components/new-ticket-form.component';
 import { OrderByPipe } from './orderby.pipe';
 
 import { DataService } from './data.service';

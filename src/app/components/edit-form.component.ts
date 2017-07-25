@@ -4,14 +4,14 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { Ticket } from './ticket';
+import { Ticket } from '../ticket';
 
-import { DataService } from './data.service';
+import { DataService } from '../data.service';
 
 @Component({
     selector: 'edit-form',
-    templateUrl: 'edit-form.component.html',
-    styleUrls: [ 'edit-form.component.css' ]
+    templateUrl: '../view/edit-form.component.html',
+    styleUrls: [ '../view/edit-form.component.css' ]
 })
 
 export class EditFormComponent implements OnInit {

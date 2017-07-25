@@ -4,14 +4,14 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { Ticket } from './ticket';
+import { Ticket } from '../ticket';
 
-import { DataService } from './data.service';
+import { DataService } from '../data.service';
 
 @Component({
     selector: 'result-table',
-    templateUrl: 'result-table.component.html',
-    styleUrls: [ 'result-table.component.css' ]
+    templateUrl: '../view/result-table.component.html',
+    styleUrls: [ '../view/result-table.component.css' ]
 })
 
 export class ResultTableComponent implements OnChanges {
