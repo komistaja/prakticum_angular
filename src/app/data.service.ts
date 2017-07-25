@@ -4,11 +4,15 @@ import { Subject } from 'rxjs/Subject';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import { Ticket } from './ticket';
+import { User } from './user';
+
 
 @Injectable()
 export class DataService {
     updateUrl = 'http://localhost:3000/update';
     adminUrl = 'http://localhost:3000/admin';
+    loginUrl = 'http://localhost:3000/login';
+
 /*     updateUrl = '/update';
     adminUrl = '/admin'; */
 
@@ -16,6 +20,7 @@ export class DataService {
     newTicketFormState: Observable<boolean>;
 
     ticket: Ticket;
+
 
     private dataFormStateSubject: Subject<boolean>;
     private newTicketFormStateSubject: Subject<boolean>;
@@ -46,6 +51,25 @@ export class DataService {
 
     getDataFormState(): Observable<boolean> {
         return this.dataFormState;
+    }
+
+/*     login(user: User): Observable<User> {
+        let headers = new Headers({ 'Content-type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        let request = this.http.post(this.loginUrl, { username: user.name, password: user.password }, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+        return request;
+    } */
+
+    login(user: User): Observable<User> {
+        let headers = new Headers({ 'Content-type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.loginUrl, { username: user.name, password: user.password }, options)
+            .map(this.extractData)
+            .catch(this.handleError);
     }
 
     updateTicket(ticket: any) {
