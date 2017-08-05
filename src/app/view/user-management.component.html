@@ -1,0 +1,16 @@
+<table *ngIf="users" class="restable">
+    <tr>
+        <th>Username</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td>{{user.username}}</td>
+        <td class="borderless-cell"><button (click)="onEdit(user.username)" type="button">EDIT</button></td>
+    </tr>
+
+</table>
+<div *ngIf="editToggle" class="editbox">
+        <label for="username">Username:</label>
+        <input type="text" value="{{user.username}}" name="username">
+        <label for="password">Password:</label>
+        <input type="text" value="{{user.password}}" name="password">
+    </div>

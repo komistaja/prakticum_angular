@@ -18,7 +18,8 @@
 }
 
 .borderless-cell {
-    border-width: 0px; 
+    border-width: 0px;
+    background-color: #f5f5f5;
 }
 
 th {

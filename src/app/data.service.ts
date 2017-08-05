@@ -53,21 +53,12 @@ export class DataService {
         return this.dataFormState;
     }
 
-/*     login(user: User): Observable<User> {
-        let headers = new Headers({ 'Content-type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        let request = this.http.post(this.loginUrl, { username: user.name, password: user.password }, options)
-            .map(this.extractData)
-            .catch(this.handleError);
-        return request;
-    } */
 
     login(user: User): Observable<User> {
         let headers = new Headers({ 'Content-type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.loginUrl, { username: user.name, password: user.password }, options)
+        return this.http.post(this.loginUrl, { username: user.username, password: user.password }, options)
             .map(this.extractData)
             .catch(this.handleError);
     }
@@ -100,6 +91,15 @@ export class DataService {
 
     addTicket(ticket: Ticket): Observable<any> {
         return this.http.post(this.adminUrl, ticket)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
+    getUsers(userName?: string): Observable<User[]> {
+
+        let headers = new Headers({ 'Content-type': 'application/json' });
+        let options = new RequestOptions({ headers: headers, params: {username: userName}});
+        return this.http.get('http://localhost:3000/user', options) // TODO
             .map(this.extractData)
             .catch(this.handleError);
     }

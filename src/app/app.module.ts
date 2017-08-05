@@ -10,6 +10,8 @@ import { LoggedComponent } from './components/logged.component';
 import { EditFormComponent } from './components/edit-form.component';
 import { ResultTableComponent } from './components/result-table.component';
 import { NewTicketFormComponent } from './components/new-ticket-form.component';
+import { UserManagement } from './components/user-management.component';
+
 import { OrderByPipe } from './orderby.pipe';
 
 import { DataService } from './data.service';
@@ -32,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     EditFormComponent,
     ResultTableComponent,
     NewTicketFormComponent,
+    UserManagement,
     OrderByPipe,
   ],
   providers: [

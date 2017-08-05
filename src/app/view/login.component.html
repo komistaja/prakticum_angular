@@ -2,7 +2,7 @@
     <form #loginForm="ngForm">
       <h3 class="inputlabel">Login</h3>
       <label for="username" class="inputlabel">Username:</label>
-      <input #name [(ngModel)]="user.name" type="text" id="name" name="name" class="input" required>
+      <input #name [(ngModel)]="user.username" type="text" id="name" name="name" class="input" required>
       <label for="password" class="inputlabel">Password:</label>
       <input #password [(ngModel)]="user.password" type="password" id="password" name="password" class="input" required>
       <p *ngIf="errorMessage">error: {{errorMessage}}</p>
